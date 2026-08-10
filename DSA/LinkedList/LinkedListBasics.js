@@ -110,51 +110,52 @@ class LinkedList{
         }
     }
 }
-const ll = new LinkedList();
+// const ll = new LinkedList();
 
-// Add nodes at the beginning
-ll.addNodeAtStart(4);
-ll.addNodeAtStart(6);
-ll.addNodeAtStart(1);
+// // Add nodes at the beginning
+// ll.addNodeAtStart(4);
+// ll.addNodeAtStart(6);
+// ll.addNodeAtStart(1);
 
-// Add node at the end
-ll.addNodeAtEnd(7);
+// // Add node at the end
+// ll.addNodeAtEnd(7);
 
-console.log("Initial Linked List:");
-ll.viewAllNodes();
+// console.log("Initial Linked List:");
+// ll.viewAllNodes();
 
-// Add node at a specific index
-ll.addAtIndex(3, 90);
+// // Add node at a specific index
+// ll.addAtIndex(3, 90);
 
-console.log("After adding node at index 3:");
-ll.viewAllNodes();
+// console.log("After adding node at index 3:");
+// ll.viewAllNodes();
 
-// Delete node at a specific index
-ll.deleteAtIndex(2);
+// // Delete node at a specific index
+// ll.deleteAtIndex(2);
 
-console.log("After deleting node at index 2:");
-ll.viewAllNodes();
+// console.log("After deleting node at index 2:");
+// ll.viewAllNodes();
 
-// Delete the first node
-ll.deleteFirstNode();
+// // Delete the first node
+// ll.deleteFirstNode();
 
-console.log("After deleting the first node:");
-ll.viewAllNodes();
+// console.log("After deleting the first node:");
+// ll.viewAllNodes();
 
-// Delete the last node
-ll.deleteLastNode();
+// // Delete the last node
+// ll.deleteLastNode();
 
-console.log("After deleting the last node:");
-ll.viewAllNodes();
-// Adding node at start
-console.log("Adding nodes at start:"); 
-ll.addNodeAtStart(0);
+// console.log("After deleting the last node:");
+// ll.viewAllNodes();
+// // Adding node at start
+// console.log("Adding nodes at start:"); 
+// ll.addNodeAtStart(0);
 
-ll.viewAllNodes();
+// ll.viewAllNodes();
 
-// Adding node at start
-console.log("Adding nodes at end:"); 
-ll.addNodeAtEnd(9);
+// // Adding node at start
+// console.log("Adding nodes at end:"); 
+// ll.addNodeAtEnd(9);
 
-ll.viewAllNodes();
+// ll.viewAllNodes();
 
+export { LinkedList };
