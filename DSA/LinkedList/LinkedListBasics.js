@@ -158,4 +158,4 @@ class LinkedList{
 
 // ll.viewAllNodes();
 
-export { LinkedList };
+export { LinkedList, Node };
