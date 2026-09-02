@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Graph DSA Interview Notes</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f8fa;
+            color: #1f2937;
+            line-height: 1.6;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        h3 {
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .card {
+            background: #f9fafb;
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .important {
+            background: #fff7ed;
+            border-left-color: #f97316;
+        }
+
+        .pattern {
+            background: #eff6ff;
+            border-left-color: #3b82f6;
+        }
+
+        code {
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        pre {
+            background: #111827;
+            color: #f9fafb;
+            padding: 18px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #f3f4f6;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 9px;
+            border-radius: 15px;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-size: 13px;
+            margin: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌐 Graph — DSA Interview Notes</h1>
+
+        <p class="subtitle">
+            Core concepts, graph types, traversal methods and the most important
+            interview patterns.
+        </p>
+
+
+        <!-- WHAT IS GRAPH -->
+        <section class="section">
+
+            <h2>1. What is a Graph?</h2>
+
+            <p>
+                A <strong>Graph</strong> is a non-linear data structure consisting of
+                <strong>vertices (nodes)</strong> and <strong>edges</strong> that
+                represent relationships between nodes.
+            </p>
+
+            <div class="card">
+
+                <h3>Example</h3>
+
+                <pre>
+A ---- B
+|      |
+|      |
+C ---- D
+        </pre>
+
+                <p>
+                    Nodes: <code>A, B, C, D</code>
+                </p>
+
+                <p>
+                    Edges: <code>A-B, A-C, B-D, C-D</code>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BASIC TERMS -->
+        <section class="section">
+
+            <h2>2. Important Graph Terminology</h2>
+
+            <div class="card">
+                <h3>Vertex / Node</h3>
+                <p>
+                    A point in the graph representing an entity.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Edge</h3>
+                <p>
+                    A connection between two vertices.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Degree</h3>
+                <p>
+                    Number of edges connected to a vertex.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Path</h3>
+                <p>
+                    A sequence of vertices connected through edges.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Cycle</h3>
+                <p>
+                    A path that starts and ends at the same vertex.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Connected Graph</h3>
+                <p>
+                    Every vertex can be reached from every other vertex.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Weighted Graph</h3>
+                <p>
+                    Each edge has an associated cost, distance or weight.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Connected Component</h3>
+                <p>
+                    A group of vertices where every vertex is reachable from another
+                    vertex in the same group.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ADVANTAGES -->
+        <section class="section">
+
+            <h2>3. Advantages of Graphs</h2>
+
+            <ul>
+                <li>Excellent for representing relationships.</li>
+                <li>Can model complex networks.</li>
+                <li>Useful for finding paths and connections.</li>
+                <li>Supports shortest-path problems.</li>
+                <li>Can represent dependencies between entities.</li>
+                <li>Useful for network, routing and recommendation problems.</li>
+            </ul>
+
+            <div class="card">
+                <h3>Real-world Examples</h3>
+
+                <span class="tag">Google Maps</span>
+                <span class="tag">Social Networks</span>
+                <span class="tag">Airline Routes</span>
+                <span class="tag">Computer Networks</span>
+                <span class="tag">Dependencies</span>
+                <span class="tag">Recommendation Systems</span>
+            </div>
+
+        </section>
+
+
+        <!-- TYPES -->
+        <section class="section">
+
+            <h2>4. Types of Graphs</h2>
+
+            <table>
+
+                <tr>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td>Undirected</td>
+                    <td>Edges have no direction.</td>
+                </tr>
+
+                <tr>
+                    <td>Directed</td>
+                    <td>Edges have a direction.</td>
+                </tr>
+
+                <tr>
+                    <td>Weighted</td>
+                    <td>Edges contain weights/costs.</td>
+                </tr>
+
+                <tr>
+                    <td>Unweighted</td>
+                    <td>All edges have equal cost.</td>
+                </tr>
+
+                <tr>
+                    <td>Cyclic</td>
+                    <td>Graph contains at least one cycle.</td>
+                </tr>
+
+                <tr>
+                    <td>Acyclic</td>
+                    <td>Graph contains no cycles.</td>
+                </tr>
+
+                <tr>
+                    <td>Connected</td>
+                    <td>Every node is reachable from another node.</td>
+                </tr>
+
+                <tr>
+                    <td>Disconnected</td>
+                    <td>Graph contains multiple components.</td>
+                </tr>
+
+                <tr>
+                    <td>DAG</td>
+                    <td>Directed Acyclic Graph.</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+
+        <!-- REPRESENTATION -->
+        <section class="section">
+
+            <h2>5. Graph Representation</h2>
+
+            <div class="card">
+
+                <h3>Adjacency List ⭐</h3>
+
+                <p>
+                    Stores the neighbors of every node.
+                </p>
+
+                <pre>
+const graph = {
+  A: ["B", "C"],
+  B: ["A", "D"],
+  C: ["A", "D"],
+  D: ["B", "C"]
+};
+        </pre>
+
+                <p>
+                    Best choice for most coding interview problems.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Adjacency Matrix</h3>
+
+                <p>
+                    Uses a 2D matrix to represent connections between vertices.
+                </p>
+
+                <pre>
+[
+  [0, 1, 1],
+  [1, 0, 0],
+  [1, 0, 0]
+]
+        </pre>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRAVERSAL -->
+        <section class="section">
+
+            <h2>6. Graph Traversal Methods</h2>
+
+            <div class="card">
+
+                <h3>🔵 BFS — Breadth First Search</h3>
+
+                <p>
+                    Visits nodes level by level.
+                </p>
+
+                <p>
+                    Uses a <strong>Queue</strong>.
+                </p>
+
+                <pre>
+Queue
+  ↓
+Start → Neighbors → Next Level
+        </pre>
+
+                <strong>Common uses:</strong>
+
+                <ul>
+                    <li>Shortest path in an unweighted graph</li>
+                    <li>Level-order traversal</li>
+                    <li>Minimum number of steps</li>
+                    <li>Multi-source BFS</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🟢 DFS — Depth First Search</h3>
+
+                <p>
+                    Explores as deeply as possible before backtracking.
+                </p>
+
+                <p>
+                    Uses <strong>Stack / Recursion</strong>.
+                </p>
+
+                <strong>Common uses:</strong>
+
+                <ul>
+                    <li>Cycle detection</li>
+                    <li>Connected components</li>
+                    <li>Backtracking</li>
+                    <li>Topological sorting</li>
+                    <li>Path existence</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card important">
+
+                <h3>⚡ BFS vs DFS</h3>
+
+                <table>
+
+                    <tr>
+                        <th>BFS</th>
+                        <th>DFS</th>
+                    </tr>
+
+                    <tr>
+                        <td>Queue</td>
+                        <td>Stack / Recursion</td>
+                    </tr>
+
+                    <tr>
+                        <td>Level by level</td>
+                        <td>Depth first</td>
+                    </tr>
+
+                    <tr>
+                        <td>Shortest path in unweighted graph</td>
+                        <td>Cycle detection / components</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script type="module" src="./orangesRotting.js"></script>
+
+</body>
+
+</html>
