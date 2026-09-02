@@ -1,7 +1,7 @@
 import { Node } from "../BinaryTree/treeTraversal.js";
 
 
-var lowestCommonAncestor = function (root, p, q) {
+var lowestCommonAncestorBT = function (root, p, q) {
     var getPath = function (root, target, ans) {
         if (root === null) return false;
         ans.push(root.val);
@@ -34,6 +34,19 @@ var lowestCommonAncestor = function (root, p, q) {
 
 };
 
+var lowestCommonAncestor = function (root, p, q) {
+    if (root === null) return null;
+
+    while (root !== null) {
+        if (root.val < p && root.val < q) {
+            root = root.left;
+        } else if (root.val > p && root.val > q) {
+            root = root.right;
+        } else {
+            return root.val;
+        }
+    }
+}
 
 let rootNode = new Node(3);
 
