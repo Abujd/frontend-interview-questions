@@ -2,21 +2,21 @@ var longestCommonSubstring = function (str1, str2) {
     const n = str1.length, m = str2.length;
     let count = 0;
     const dp = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0))
-    return helperTab(str1, str2, n, m, count, dp);
+    return helper(str1, str2, n, m, count, dp);
 };
 var helper = function (str1, str2, n, m, count, dp) {
 
     if (m < 0 || n < 0) return count;
 
-    if (dp[n][m] !== 0) return dp[n][m];
-
     if (str1[n] === str2[m]) {
-        count++;
-        dp[n][m] = helper(str1, str2, n - 1, m - 1, count, dp);
-    } else {
-        dp[n][m] = Math.max(helper(str1, str2, n, m - 1, 0, dp), helper(str1, str2, n - 1, m, 0, dp));
+        count = helper(str1, str2, n - 1, m - 1, count + 1);
     }
-    return dp[n][m];
+
+    let skipStr1 = helper(str1, str2, n, m - 1, 0);
+    let skipStr2 = helper(str1, str2, n - 1, m, 0);
+
+    return Math.max(count, Math.max(skipStr1, skipStr2));
+
 }
 
 var helperTab = function (str1, str2, n, m, count, dp) {
@@ -46,6 +46,7 @@ var helperTab = function (str1, str2, n, m, count, dp) {
             }
         }
     }
+    console.log(maxLength);
 
     if (dp[n][m] === 0) return 0;
     let ans = [];
@@ -65,6 +66,6 @@ var helperTab = function (str1, str2, n, m, count, dp) {
     return ans.reverse().join("")
 }
 const str1 = "xyabcdeo";
-const str2 = "abcdeo";
+const str2 = "abctttt";
 
 console.log(longestCommonSubstring(str1, str2));
