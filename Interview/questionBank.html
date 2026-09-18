@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Frontend Engineer Interview Guide — 50–55 LPA</title>
+    <link rel="stylesheet" href="questionBank.css">
+
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <button class="nav-btn active" data-target="top50">Top 50 Questions</button>
+            <button class="nav-btn" data-target="topicbank">Topic Bank</button>
+            <button class="nav-btn" data-target="patterns">Patterns</button>
+            <button class="nav-btn" data-target="roadmap">Roadmap</button>
+        </div>
+    </nav>
+
+    <main>
+        <div id="top50" class="section">
+            <div class="container">
+                <div class="section-title"><span class="icon">🎯</span> Top 50 Most Important Questions</div>
+                <div class="section-sub">Ranked by how often this topic appears across senior frontend prep material.
+                    This is an editorial ranking, not a frequency count from a controlled sample.</div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-n">23</div>
+                        <div class="stat-l">High Priority</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n">18</div>
+                        <div class="stat-l">Medium Priority</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n">9</div>
+                        <div class="stat-l">Low Priority</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-n">~10</div>
+                        <div class="stat-l">Source Reports Reviewed</div>
+                    </div>
+                </div>
+
+                <!-- <div class="disclaimer">
+                    <strong>⚠️ How to read the sourcing on this page</strong>
+                    Every linked source below is a real, publicly accessible page that was checked before publishing.
+                    But most are single anonymous candidate reports (one person, one loop, one outcome — often a
+                    rejection) — not a statistically representative sample. Where a source names a specific question,
+                    that question is tagged <span class="pill V">Verified</span> and the company shown is the one the
+                    report names. Where a card lists extra companies or a topic beyond what the linked source actually
+                    says, it's tagged <span class="pill U">Pattern</span> — meaning it's a commonly-asked variant
+                    compiled from general frontend-interview knowledge, not a confirmed report. Treat "Pattern" tags as
+                    good things to prepare, not as evidence a specific company asked exactly that. Compensation figures
+                    (₹50–55 LPA) are directional, based on publicly discussed ranges, and vary by company, level, and
+                    negotiation.
+                </div> -->
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    JavaScript & TypeScript</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q1</span>
+                        <span class="q-text">Explain closures. What's a real-world case where a closure causes a memory
+                            leak (e.g. an event listener holding a stale reference in a React SPA)?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">JavaScript</span>
+                        <span class="q-tag">Memory</span>
+                        <span class="q-note">Pattern — closures are confirmed asked at LinkedIn (see Q7), but the
+                            memory-leak framing here is a common variant, not a verbatim report</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How does the JS garbage collector handle closures with WeakMap vs Map?</li>
+                            <li>Show me in code: addEventListener inside useEffect causing a memory leak — and the fix.
+                            </li>
+                            <li>What is the difference between a stale closure and a stale reference in React hooks?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q2</span>
+                        <span class="q-text">Walk me through the JavaScript event loop — call stack, microtask queue,
+                            macrotask queue. What is the output of this code? [output-based tricky snippet]</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Event Loop</span>
+                        <span class="q-tag">Async</span>
+                        <span class="q-note">Pattern — the LinkedIn IC3 phone screen confirmed tricky output questions
+                            on hoisting/scope/coercion (see Q7); event-loop-specific framing is a common companion
+                            topic, not separately confirmed in that report</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Where do Promise.resolve() and setTimeout(fn, 0) fall in the queue order?</li>
+                            <li>What happens when you throw an error inside a Promise vs. a setTimeout callback?</li>
+                            <li>How does the event loop behave differently in Node.js vs. the browser?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q3</span>
+                        <span class="q-text">Implement <code
+                                style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:13px">clearAllTimeouts()</code>
+                            — a utility that clears all currently set timeouts in the browser.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">JavaScript</span>
+                        <span class="q-tag">Browser APIs</span>
+                        <span class="q-company">LinkedIn (JS Coding round, Senior IC3) · also reported as a
+                            Facebook/Meta question</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How would you monkey-patch window.setTimeout to track all timer IDs?</li>
+                            <li>What are the risks of patching native browser APIs in a shared codebase?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q4</span>
+                        <span class="q-text">Explain prototypal inheritance. Implement <code
+                                style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:13px">Object.create</code>
+                            polyfill from scratch.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">JavaScript</span>
+                        <span class="q-tag">OOP</span>
+                        <span class="q-note">Pattern — prototypal inheritance is a confirmed LinkedIn round-1 topic (see
+                            Q7); the Object.create polyfill specifically is a common companion exercise, not separately
+                            confirmed</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What is the difference between __proto__, prototype, and Object.getPrototypeOf()?</li>
+                            <li>How does class syntax in ES6 desugar to prototype chains?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q5</span>
+                        <span class="q-text">Implement debounce and throttle from scratch. When would you use each in a
+                            real product?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">JavaScript</span>
+                        <span class="q-tag">Performance</span>
+                        <span class="q-company">Debounce reported at Flipkart · throttle reported at Walmart</span>
+                        <a class="source-link"
+                            href="https://github.com/Devtools-Tech-Team/front-end-interview-questions"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Implement a debounce that returns a cancellable promise.</li>
+                            <li>How would throttle behave differently for scroll events vs. input events?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q6</span>
+                        <span class="q-text">Implement <code
+                                style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:13px">Promise.all</code>,
+                            <code
+                                style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:13px">Promise.allSettled</code>,
+                            and <code
+                                style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:13px">Promise.race</code>
+                            polyfills.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">JavaScript</span>
+                        <span class="q-tag">Async</span>
+                        <span class="q-company">Promise.race reported in a public frontend-interview question
+                            bank</span>
+                        <a class="source-link"
+                            href="https://github.com/Devtools-Tech-Team/front-end-interview-questions"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Implement a concurrent task runner with max concurrency N.</li>
+                            <li>How does Promise chaining differ from async/await in error propagation?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q7</span>
+                        <span class="q-text">Tricky output question: hoisting, scope, and coercion. What is the output
+                            and why?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">JavaScript</span>
+                        <span class="q-tag">Hoisting</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — Phone Screen round</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What is the Temporal Dead Zone? When does it apply to let vs. var?</li>
+                            <li>How does function hoisting differ from variable hoisting?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q8</span>
+                        <span class="q-text">Implement an Event Emitter class (on, off, emit, once) from scratch.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">JavaScript</span>
+                        <span class="q-tag">Design Patterns</span>
+                        <span class="q-company">Reported as a Facebook/Meta frontend interview question</span>
+                        <a class="source-link"
+                            href="https://github.com/Devtools-Tech-Team/front-end-interview-questions"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How would you handle memory leaks from dangling event listeners in this implementation?
+                            </li>
+                            <li>Extend it to support wildcard event subscriptions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q9</span>
+                        <span class="q-text">What are TypeScript generics? Show me a real-world use case where generics
+                            eliminate code duplication in a component library.</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">TypeScript</span>
+                        <span class="q-tag">Generics</span>
+                        <span class="q-note">Pattern — standard senior TypeScript topic, not tied to one verified
+                            report</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What are conditional types and mapped types? When have you used them?</li>
+                            <li>Difference between unknown, any, and never — when do you reach for each?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    React & Next.js</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q10</span>
+                        <span class="q-text">Explain React's reconciliation and the Fiber architecture. How does React
+                            decide what to re-render?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">React</span>
+                        <span class="q-tag">Internals</span>
+                        <span class="q-note">Pattern — standard senior React internals topic across product-company
+                            loops</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What changed between React 17 and React 18 in terms of concurrency?</li>
+                            <li>How does <code
+                                    style="font-family:var(--mono);background:var(--surface2);padding:1px 5px;border-radius:3px">React.memo</code>
+                                differ from <code
+                                    style="font-family:var(--mono);background:var(--surface2);padding:1px 5px;border-radius:3px">useMemo</code>
+                                and <code
+                                    style="font-family:var(--mono);background:var(--surface2);padding:1px 5px;border-radius:3px">useCallback</code>?
+                            </li>
+                            <li>When does bailing out of a re-render via memo actually make performance worse?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q11</span>
+                        <span class="q-text">What are common useEffect pitfalls? Explain stale closures in hook
+                            dependency arrays.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">React</span>
+                        <span class="q-tag">Hooks</span>
+                        <span class="q-note">Pattern — one of the most common senior React interview themes
+                            generally</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>When should you use useLayoutEffect instead of useEffect?</li>
+                            <li>How do you avoid an infinite loop in useEffect without disabling the eslint rule?</li>
+                            <li>Explain React 18's useEffectEvent (formerly useEvent) and its purpose.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q12</span>
+                        <span class="q-text">Design a custom React hook for data fetching with loading, error, caching,
+                            and race-condition handling.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">React</span>
+                        <span class="q-tag">Custom Hooks</span>
+                        <span class="q-note">Pattern — very common senior machine-coding / hooks prompt</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How does SWR/React Query solve the same problem? What are the trade-offs?</li>
+                            <li>Handle AbortController in useEffect — show me the cleanup.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q13</span>
+                        <span class="q-text">Explain React Server Components. What can they and can't they do? When
+                            would you choose RSC over a regular component?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">React</span>
+                        <span class="q-tag">Next.js</span>
+                        <span class="q-note">Pattern — increasingly common in 2025–2026 Next.js-heavy loops as App
+                            Router adoption grows</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How does "use client" affect the component tree in Next.js App Router?</li>
+                            <li>Can a Server Component import a Client Component? Vice versa? What are the rules?</li>
+                            <li>How do you pass data from RSC to a Client Component without prop drilling?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q14</span>
+                        <span class="q-text">What is the difference between SSR, SSG, ISR, and CSR in Next.js? Give a
+                            product scenario for each.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Next.js</span>
+                        <span class="q-tag">Rendering</span>
+                        <span class="q-note">Pattern — near-universal for senior Next.js roles</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What is Partial Prerendering (PPR) in Next.js 14+?</li>
+                            <li>How does ISR revalidation work with on-demand revalidatePath?</li>
+                            <li>Compare TTFB/LCP under warm ISR cache vs. cold SSR.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q15</span>
+                        <span class="q-text">What causes a hydration mismatch in Next.js? How do you debug and fix
+                            it?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Next.js</span>
+                        <span class="q-tag">Hydration</span>
+                        <span class="q-note">Pattern — common as App Router adoption has increased debugging questions
+                            around it</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How does suppressHydrationWarning work and when is it appropriate vs. a code smell?</li>
+                            <li>What patterns cause Date.now() to mismatch between server and client?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q16</span>
+                        <span class="q-text">Compare state management solutions: Context API, Zustand, Redux Toolkit,
+                            Jotai. When would you choose each?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">React</span>
+                        <span class="q-tag">State Management</span>
+                        <span class="q-note">Pattern — common senior architecture-judgment question</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What are the performance implications of overusing React Context?</li>
+                            <li>How does Zustand avoid the stale closure problem that Context suffers from?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    Browser Internals & Web Performance</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q17</span>
+                        <span class="q-text">What are Core Web Vitals (LCP, INP, CLS)? How have you improved them in a
+                            production app? INP replaced FID in March 2024 — what's different?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Performance</span>
+                        <span class="q-tag">CWV</span>
+                        <span class="q-note">Pattern — standard senior performance question; INP officially replaced FID
+                            as a Core Web Vital in March 2024, and many candidates still default to talking about
+                            FID</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Walk me through diagnosing a high LCP score using Chrome DevTools / Lighthouse CI.</li>
+                            <li>How do you measure CLS caused by dynamically injected content (ads, banners)?</li>
+                            <li>What is INP and how do long tasks affect it?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q18</span>
+                        <span class="q-text">Explain the browser rendering pipeline: from HTML parsing → DOM → CSSOM →
+                            Render Tree → Layout → Paint → Composite.</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Browser</span>
+                        <span class="q-tag">Rendering</span>
+                        <span class="q-note">Pattern — Microsoft's 2026 frontend loop is confirmed to include a "Browser
+                            Internals" round, but the source does not list its exact questions, so this specific prompt
+                            is a plausible companion topic, not a verified quote</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What triggers layout (reflow) vs. repaint vs. composite-only changes?</li>
+                            <li>How does <code
+                                    style="font-family:var(--mono);background:var(--surface2);padding:1px 5px;border-radius:3px">will-change: transform</code>
+                                promote an element to its own GPU layer?</li>
+                            <li>What is the critical rendering path and how do you optimize it?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q19</span>
+                        <span class="q-text">How would you implement code splitting and lazy loading in a large React
+                            app? What are the pitfalls?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Performance</span>
+                        <span class="q-tag">Bundling</span>
+                        <span class="q-note">Pattern — standard senior performance / architecture topic</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What is the difference between route-based and component-based code splitting?</li>
+                            <li>How do you prefetch routes intelligently (on hover, on viewport entry)?</li>
+                            <li>How would you measure the impact of splitting on TTI?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q20</span>
+                        <span class="q-text">What is virtual scrolling (windowing)? When should you use react-window vs.
+                            react-virtual? Implement a basic version.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Performance</span>
+                        <span class="q-tag">DOM</span>
+                        <span class="q-note">Pattern — common wherever a role involves large data tables or feeds</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you handle dynamic row heights in a virtualized list?</li>
+                            <li>What happens to accessibility and screen readers with virtual scrolling?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q21</span>
+                        <span class="q-text">Explain the pros and cons of injecting widgets into an iframe. When is it
+                            appropriate?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Browser</span>
+                        <span class="q-tag">Security</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — "Pragmatic UI" round</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do iframes communicate with the parent page securely via postMessage?</li>
+                            <li>What CSP headers prevent clickjacking via iframes?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    Frontend System Design</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q22</span>
+                        <span class="q-text">Design an Autocomplete / Typeahead component from scratch. Cover
+                            architecture, debouncing, caching, keyboard accessibility, and API design.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">System Design</span>
+                        <span class="q-tag">UX</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — entire System Design round;
+                            also a very common general system-design prompt</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you deduplicate inflight network requests for the same query?</li>
+                            <li>How would you implement client-side caching with LRU eviction?</li>
+                            <li>Walk me through ARIA roles for a combobox/listbox pattern.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q23</span>
+                        <span class="q-text">Design a real-time feed (like Twitter/Facebook News Feed) on the frontend.
+                            Cover state management, pagination, polling vs. WebSocket, and rendering.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">System Design</span>
+                        <span class="q-tag">Real-time</span>
+                        <span class="q-note">Pattern — a staple frontend system-design prompt across large product
+                            companies</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Cursor-based vs. offset pagination — when does cursor win?</li>
+                            <li>How do you handle optimistic UI updates when a post fails to send?</li>
+                            <li>How do you prevent the feed from shifting when new items are prepended?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q24</span>
+                        <span class="q-text">Design a real-time chat application (like WhatsApp/Slack). Focus on message
+                            ordering, delivery receipts, offline support, and UI architecture.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">System Design</span>
+                        <span class="q-tag">WebSocket</span>
+                        <span class="q-note">Pattern — a staple frontend system-design prompt, especially where
+                            WebSocket experience is relevant</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you handle WebSocket reconnection with exponential backoff?</li>
+                            <li>How do you store and sync messages in IndexedDB for offline support?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q25</span>
+                        <span class="q-text">Design an image gallery with infinite scroll. Cover IntersectionObserver,
+                            DOM virtualization, scroll restoration, and performance.</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">System Design</span>
+                        <span class="q-tag">Performance</span>
+                        <span class="q-note">Pattern — common frontend system-design prompt covered by general prep
+                            resources; not tied to a specific verified company report</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you prevent layout shift (CLS) when images load asynchronously?</li>
+                            <li>How do you handle race conditions when fetching the next page?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q26</span>
+                        <span class="q-text">Design Swiggy's Restaurant Page with real-time order updates. Cover
+                            component hierarchy, caching strategy, live updates (WebSocket/polling), and mobile
+                            performance.</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">System Design</span>
+                        <span class="q-tag">Product Design</span>
+                        <span class="q-note">Pattern — a "design a page like our product" prompt is common at consumer
+                            apps generally; this specific Swiggy framing is illustrative rather than a confirmed
+                            verbatim report</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you handle menu sections with 200+ items without hurting paint performance?</li>
+                            <li>What is your SSR vs. CSR strategy for this page to optimize LCP?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q27</span>
+                        <span class="q-text">Design a micro-frontend architecture. What are the trade-offs of module
+                            federation vs. iframes vs. web components?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Architecture</span>
+                        <span class="q-tag">Micro-frontend</span>
+                        <span class="q-note">Pattern — common at larger orgs with multiple frontend teams sharing a
+                            shell app</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you share state between micro-frontends without tight coupling?</li>
+                            <li>How do you handle versioning when one team ships breaking changes?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    Machine Coding</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q28</span>
+                        <span class="q-text">Build a File Explorer (tree structure, expand/collapse folders, nested).
+                            Used widely in product company rounds.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Machine Coding</span>
+                        <span class="q-tag">React</span>
+                        <span class="q-company">Reported as an Atlassian machine-coding question; a file-explorer /
+                            nested-tree build was also part of a Swiggy SDE-1 online-assessment round</span>
+                        <a class="source-link"
+                            href="https://github.com/Devtools-Tech-Team/front-end-interview-questions"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How would you make it accessible with full keyboard navigation?</li>
+                            <li>Add drag-and-drop to move files between folders — what state changes?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q29</span>
+                        <span class="q-text">Build an infinite scroll list that loads more items as the user scrolls —
+                            using IntersectionObserver, not scroll events.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Machine Coding</span>
+                        <span class="q-tag">Browser APIs</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — JavaScript Coding round
+                            asked for infinite scrolling (report doesn't specify IntersectionObserver vs. scroll
+                            events)</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you handle race conditions when a user scrolls very fast?</li>
+                            <li>Implement scroll restoration when navigating back.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q30</span>
+                        <span class="q-text">Build a Kanban board (drag-and-drop columns and cards). State management,
+                            performance, and accessibility.</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Machine Coding</span>
+                        <span class="q-tag">State</span>
+                        <span class="q-note">Pattern — a "Trello clone" style build appears in general frontend
+                            machine-coding question banks; Microsoft's 2026 loop is confirmed to include a 2-hour UI
+                            machine-coding round, but its exact prompt wasn't published, so this specific pairing is not
+                            verified</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How would you sync board state to a backend optimistically?</li>
+                            <li>What HTML5 drag API limitations push you toward a library like dnd-kit?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q31</span>
+                        <span class="q-text">Build a Calculator component (not just UI — component logic, state machine,
+                            design patterns).</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Machine Coding</span>
+                        <span class="q-tag">Design Patterns</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — "Pragmatic UI" round</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Model the calculator as a finite state machine — what states and transitions exist?</li>
+                            <li>How does MVC/MVVM map to React's component model?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q32</span>
+                        <span class="q-text">Build a mouse-follow circle inside a box — when cursor enters the box,
+                            render a circle at cursor position, clipped within boundaries.</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Machine Coding</span>
+                        <span class="q-tag">DOM / CSS</span>
+                        <span class="q-company">Swiggy, SDE-1 Frontend (fully remote, Dec 2024) — round 3</span>
+                        <span class="q-note">Note: this specific report is an entry-level (SDE-1) loop, not senior — use
+                            it for the pattern, not as senior-level calibration</span>
+                        <a class="source-link"
+                            href="https://leetcode.com/discuss/interview-experience/6334442/Swiggy-SDE-1-Frontend-Interview-Experience/"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How would you animate the circle smoothly with CSS transitions vs.
+                                requestAnimationFrame?</li>
+                            <li>How would you throttle the mousemove handler to avoid jank?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q33</span>
+                        <span class="q-text">Build a reusable data table with sorting, filtering, pagination, and column
+                            resize. Senior-level code quality expected.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Machine Coding</span>
+                        <span class="q-tag">React</span>
+                        <span class="q-note">Pattern — a very common senior machine-coding build across large product
+                            companies; not tied to one verified report</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How would you add server-side sorting/filtering with URL state sync?</li>
+                            <li>At what row count would you switch to virtualization?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    DOM / DSA for Frontend</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q34</span>
+                        <span class="q-text">Given two DOM nodes, determine if one is an ancestor of the other. Optimize
+                            for both top-down and bottom-up traversal.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">DOM</span>
+                        <span class="q-tag">Algorithms</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — DS & Algo round</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What is the time complexity of node.contains() vs. your traversal?</li>
+                            <li>How does Node.compareDocumentPosition() work?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q35</span>
+                        <span class="q-text">Implement event delegation for a dynamically generated list. Why is it more
+                            efficient than attaching listeners per item?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">DOM</span>
+                        <span class="q-tag">Events</span>
+                        <span class="q-note">Pattern — an extremely common general frontend fundamentals question</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>When does event delegation fail (e.g., stopPropagation in nested elements)?</li>
+                            <li>How does React's synthetic event system use delegation under the hood?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    HTML, CSS & Accessibility</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q36</span>
+                        <span class="q-text">What is CSS specificity? How do you architect CSS at scale to avoid
+                            specificity wars in a large team?</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">CSS</span>
+                        <span class="q-tag">Architecture</span>
+                        <span class="q-note">Pattern — standard senior CSS architecture question</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Compare BEM vs. CSS Modules vs. CSS-in-JS vs. Tailwind for team scale.</li>
+                            <li>What does @layer do and how does it change the specificity battle?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q37</span>
+                        <span class="q-text">Implement inline 5 divs in a row without flex, without margin, without
+                            padding. How many approaches exist?</span>
+                        <span class="pill L">Low</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">CSS</span>
+                        <span class="q-tag">Tricky</span>
+                        <span class="q-company">Reported in a Medium write-up on machine-coding CSS questions
+                            (experience range 2–8 years)</span>
+                        <a class="source-link"
+                            href="https://medium.com/@ritambrayadav20/frontend-mern-developers-machine-coding-round-interview-questions-for-experience-2-8-years-28f3351a0567"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>When would display:inline-block have whitespace issues? How do you fix them?</li>
+                            <li>When would you choose CSS Grid over Flexbox for layout?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q38</span>
+                        <span class="q-text">What are WCAG accessibility standards? How do you make a modal dialog or
+                            dropdown keyboard-accessible?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Accessibility</span>
+                        <span class="q-tag">ARIA</span>
+                        <span class="q-note">Pattern — common at senior level generally, especially where accessibility
+                            compliance matters to the product</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>Explain focus trap in a modal — implement it with vanilla JS.</li>
+                            <li>What ARIA roles apply to a combobox/autocomplete vs. a dialog?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    Frontend Architecture & Node.js</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q39</span>
+                        <span class="q-text">How do you design a scalable component library used across multiple teams?
+                            Token system, versioning, API stability.</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Architecture</span>
+                        <span class="q-tag">Design System</span>
+                        <span class="q-note">Pattern — common where the role owns or contributes to a shared component
+                            library</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you handle breaking changes in a component library with 10 consuming teams?</li>
+                            <li>What is the role of Storybook in a design system workflow?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q40</span>
+                        <span class="q-text">Explain A/B testing from an engineering perspective. How do you implement
+                            it and what metrics do you track?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Architecture</span>
+                        <span class="q-tag">Product Thinking</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — Product Sense round</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>How do you avoid FOUC (flash of uncontrolled content) when A/B splitting above-the-fold
+                                elements?</li>
+                            <li>What is the risk of running too many A/B tests simultaneously (interaction effects)?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q41</span>
+                        <span class="q-text">How do you architect frontend error boundaries, logging, and monitoring?
+                            (Sentry, error boundaries, unhandledrejection)</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Architecture</span>
+                        <span class="q-tag">Observability</span>
+                        <span class="q-note">Pattern — Swiggy's SDE-1 hiring-manager round is confirmed to have covered
+                            monitoring/testing as part of a broader "build from ground up" discussion (not this specific
+                            question)</span>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q42</span>
+                        <span class="q-text">What is CORS? Walk me through the preflight mechanism. How do you configure
+                            it in a Node.js/Express API?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Node.js</span>
+                        <span class="q-tag">Security</span>
+                        <span class="q-note">Pattern — common senior networking-fundamentals question</span>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>When does a simple request skip preflight and why?</li>
+                            <li>How does SameSite cookie attribute interact with CORS?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q43</span>
+                        <span class="q-text">Explain HTTP/2 and HTTP/3 differences. How do they affect frontend
+                            optimization strategies (no more domain sharding, multiplexing)?</span>
+                        <span class="pill L">Low</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Networking</span>
+                        <span class="q-tag">Performance</span>
+                        <span class="q-note">Pattern — occasional senior networking-fundamentals question</span>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q44</span>
+                        <span class="q-text">How do Service Workers enable PWA offline support? Explain cache strategies
+                            (cache-first, network-first, stale-while-revalidate).</span>
+                        <span class="pill L">Low</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">PWA</span>
+                        <span class="q-tag">Service Workers</span>
+                        <span class="q-note">Pattern — relevant where offline support matters to the product (e.g. food
+                            delivery, quick-commerce)</span>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q45</span>
+                        <span class="q-text">What is Content Security Policy (CSP)? How does it prevent XSS? How do you
+                            set nonce-based CSP with Next.js?</span>
+                        <span class="pill L">Low</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Security</span>
+                        <span class="q-tag">Next.js</span>
+                        <span class="q-note">Pattern — more likely at fintech / security-sensitive companies</span>
+                    </div>
+                </div>
+
+                <h3
+                    style="color:var(--accent);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:24px 0 12px;">
+                    Senior Leadership & Behavioral</h3>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q46</span>
+                        <span class="q-text">Tell me about a decision you made about your current project or team — what
+                            problems you solve, how the team is structured, and how you approach conflict resolution and
+                            collaboration.</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Leadership</span>
+                        <span class="q-tag">Behavioral</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — Hiring Manager round</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                    <div class="q-follow">
+                        <div class="q-follow-label">Senior Follow-ups</div>
+                        <ul>
+                            <li>What would you have done differently in hindsight?</li>
+                            <li>How did you handle pushback from the team or leadership?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q47</span>
+                        <span class="q-text">Describe a time you resolved a technical conflict within your team. What
+                            was your approach and the outcome?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Leadership</span>
+                        <span class="q-tag">Collaboration</span>
+                        <span class="q-note">Pattern — standard STAR-format behavioral prompt at senior hiring-manager
+                            rounds generally</span>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q48</span>
+                        <span class="q-text">How do you approach mentoring junior engineers while still meeting your own
+                            delivery commitments?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Leadership</span>
+                        <span class="q-tag">Mentoring</span>
+                        <span class="q-note">Pattern — standard at senior/staff-adjacent hiring-manager rounds</span>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q49</span>
+                        <span class="q-text">Talk about an app you use daily — what makes it compelling? How would you
+                            improve it? (PM-style product thinking)</span>
+                        <span class="pill H">High</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Product Sense</span>
+                        <span class="q-tag">Leadership</span>
+                        <span class="q-company">LinkedIn, Senior Front End Engineer (IC3) — Product Sense round</span>
+                        <a class="source-link"
+                            href="https://roundz.substack.com/p/interview-experience-152-linkedin-sde3-ic3-frontend-engineer"
+                            target="_blank">Source ↗</a>
+                    </div>
+                </div>
+
+                <div class="q-card">
+                    <div class="q-header">
+                        <span class="q-num">Q50</span>
+                        <span class="q-text">If you were building a product from the ground up, what would you consider
+                            — planning, component design, data flow, design patterns, performance, testing,
+                            monitoring?</span>
+                        <span class="pill M">Medium</span>
+                    </div>
+                    <div class="q-meta">
+                        <span class="q-tag">Leadership</span>
+                        <span class="q-tag">Ownership</span>
+                        <span class="q-company">Swiggy, SDE-1 Frontend (Dec 2024) — Hiring Manager round (candidate
+                            noted testing/monitoring as a weaker area)</span>
+                        <span class="q-note">Sourced from an entry-level loop; the framing generalizes well to senior
+                            rounds but wasn't asked at that level in this report</span>
+                        <a class="source-link"
+                            href="https://leetcode.com/discuss/interview-experience/6334442/Swiggy-SDE-1-Frontend-Interview-Experience/"
+                            target="_blank">Source ↗</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="topicbank" class="section">
+            <div class="container">
+                <div class="section-title"><span class="icon">📚</span> Topic-wise Question Bank</div>
+                <div class="section-sub">Essential topics grouped by area, compiled from the sources above plus general
+                    senior frontend prep knowledge — treat this section as a study checklist, not a set of confirmed
+                    company reports.</div>
+
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <h3>⚡ JavaScript Core</h3>
+                        <ul>
+                            <li>Output-based: hoisting, coercion, TDZ</li>
+                            <li>Closures, scope, lexical environment</li>
+                            <li>Prototypal inheritance + polyfills (bind, call, apply)</li>
+                            <li>Event loop: microtask vs macrotask</li>
+                            <li>Promise internals + async/await error handling</li>
+                            <li>Generators and iterators (Symbol.iterator)</li>
+                            <li>Implement debounce / throttle / memoize</li>
+                            <li>WeakMap, WeakRef, WeakSet — GC implications</li>
+                            <li>Currying and function composition</li>
+                            <li>Module systems: CommonJS vs ESM differences</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>🔷 TypeScript</h3>
+                        <ul>
+                            <li>Generics in utility functions and component types</li>
+                            <li>Discriminated unions + exhaustive checks</li>
+                            <li>Conditional types, infer keyword</li>
+                            <li>Mapped types (Partial, Required, Pick, Omit)</li>
+                            <li>Type vs Interface — when to use which</li>
+                            <li>unknown vs any vs never</li>
+                            <li>Declaration merging and module augmentation</li>
+                            <li>Strict mode gotchas (strictNullChecks, noImplicitAny)</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>⚛️ React Deep Dive</h3>
+                        <ul>
+                            <li>Fiber reconciliation + React 18 concurrency</li>
+                            <li>useEffect pitfalls: stale closure, cleanup</li>
+                            <li>useMemo / useCallback — when they hurt performance</li>
+                            <li>useRef vs useState for mutable values</li>
+                            <li>Custom hooks: patterns and anti-patterns</li>
+                            <li>React.memo — when it backfires</li>
+                            <li>Context performance issues — splitting contexts</li>
+                            <li>Error boundaries and reset patterns</li>
+                            <li>Suspense + React.lazy for code splitting</li>
+                            <li>React 18: startTransition, useDeferredValue</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>🔲 Next.js</h3>
+                        <ul>
+                            <li>SSR / SSG / ISR / CSR — choose per page</li>
+                            <li>App Router: layouts, server components, "use client"</li>
+                            <li>Hydration mismatches — causes and fixes</li>
+                            <li>React Server Components — rules and limitations</li>
+                            <li>Route Handlers vs API Routes (Pages vs App)</li>
+                            <li>Middleware for auth / redirects / A/B testing</li>
+                            <li>Image optimization (next/image, LCP impact)</li>
+                            <li>ISR: revalidatePath, revalidateTag</li>
+                            <li>Partial Prerendering (PPR) — Next.js 14+</li>
+                            <li>Migrating Pages Router → App Router</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>🌐 Browser Internals</h3>
+                        <ul>
+                            <li>Rendering pipeline: parse → layout → paint → composite</li>
+                            <li>Reflow vs repaint vs composite triggers</li>
+                            <li>Critical rendering path optimization</li>
+                            <li>requestAnimationFrame vs setTimeout(fn, 0)</li>
+                            <li>Web Workers and SharedArrayBuffer</li>
+                            <li>iframe: security, isolation, postMessage</li>
+                            <li>Storage: localStorage / sessionStorage / IndexedDB / cookies</li>
+                            <li>Service Workers: cache strategies</li>
+                            <li>CORS, preflight, SameSite cookies</li>
+                            <li>CSP headers, XSS, CSRF defenses</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>📈 Web Performance</h3>
+                        <ul>
+                            <li>Core Web Vitals: LCP, INP (replaced FID in 2024), CLS</li>
+                            <li>Lighthouse CI and WebPageTest workflows</li>
+                            <li>Code splitting: route-based vs component-based</li>
+                            <li>Tree shaking — how module resolution affects it</li>
+                            <li>Image optimization: WebP, AVIF, lazy loading</li>
+                            <li>Font loading: font-display strategies</li>
+                            <li>Virtual scrolling with react-window / TanStack</li>
+                            <li>Bundle analysis with webpack-bundle-analyzer</li>
+                            <li>Preload, prefetch, preconnect resource hints</li>
+                            <li>Measuring with PerformanceObserver API</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>🏗️ Frontend System Design</h3>
+                        <ul>
+                            <li>Autocomplete / typeahead (most common)</li>
+                            <li>News feed / social timeline</li>
+                            <li>Real-time chat (WebSocket / SSE)</li>
+                            <li>E-commerce product page with live updates</li>
+                            <li>Infinite scroll gallery</li>
+                            <li>Video player (YouTube)</li>
+                            <li>Collaborative document editor (Google Docs)</li>
+                            <li>Kanban / project board</li>
+                            <li>Notification system</li>
+                            <li>Analytics dashboard with live metrics</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>🔨 Machine Coding (Top)</h3>
+                        <ul>
+                            <li>File Explorer (most asked at product cos.)</li>
+                            <li>Infinite scroll list</li>
+                            <li>Mouse-follow circle in a box</li>
+                            <li>Calculator with state machine</li>
+                            <li>Kanban drag-and-drop board</li>
+                            <li>Star rating component</li>
+                            <li>Image carousel with autoplay</li>
+                            <li>Nested comment thread</li>
+                            <li>Accordion / tabs component</li>
+                            <li>Multi-step form with validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>🔧 HTML / CSS / A11y</h3>
+                        <ul>
+                            <li>CSS specificity + cascade layers (@layer)</li>
+                            <li>BEM / Tailwind / CSS Modules at scale</li>
+                            <li>Flexbox vs Grid — senior-level nuances</li>
+                            <li>CSS Grid: subgrid, container queries</li>
+                            <li>Inline 5 divs without flex/margin/padding (tricky)</li>
+                            <li>Focus trap in modals (keyboard nav)</li>
+                            <li>ARIA roles: combobox, dialog, listbox</li>
+                            <li>Semantic HTML for SEO and screen readers</li>
+                            <li>CSS animations: transform vs top/left (GPU)</li>
+                            <li>CSS variables and design tokens</li>
+                        </ul>
+                    </div>
+
+                    <div class="topic-card">
+                        <h3>🚀 Architecture & Leadership</h3>
+                        <ul>
+                            <li>Micro-frontend: module federation, iframes, web components</li>
+                            <li>Monorepo: Nx / Turborepo trade-offs</li>
+                            <li>Design system: versioning, API stability, tokens</li>
+                            <li>Frontend observability: error boundaries + Sentry</li>
+                            <li>CI/CD for frontend: visual regression, bundle budget</li>
+                            <li>Testing strategy: unit, integration, E2E, visual</li>
+                            <li>A/B testing implementation and metrics</li>
+                            <li>Feature flags: progressive rollout patterns</li>
+                            <li>Mentoring junior engineers effectively</li>
+                            <li>Technical debt management and communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="patterns" class="section">
+            <div class="container">
+                <div class="section-title"><span class="icon">🔁</span> Recurring Interview Patterns</div>
+                <div class="section-sub">Themes that show up repeatedly across senior frontend prep material and the
+                    candidate reports checked for this guide. The "grounded in" line under each pattern names what's
+                    actually verified vs. generalized.</div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">01</div>
+                    <div class="pattern-body">
+                        <h3>JavaScript Core Deep-Dive</h3>
+                        <p>Senior interviews tend to include at least one deep JavaScript round — output-based questions
+                            on closures, hoisting, and coercion, with an expectation that you can explain underlying
+                            engine behavior, not just the answer. The one fully-verified example here: LinkedIn's Senior
+                            (IC3) phone screen opened with exactly this kind of question before any UI work.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: 1 verified report
+                            (LinkedIn). The claim that this generalizes to "every company" is this guide's inference
+                            from broader industry prep material, not a confirmed pattern across multiple sources.</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">02</div>
+                    <div class="pattern-body">
+                        <h3>Machine Coding: Build a Real UI Component, Live</h3>
+                        <p>A live 60–120 minute session building a working component. File Explorer, infinite scroll,
+                            and cursor/mouse-interaction problems are common prompts. Code quality, accessibility, and
+                            edge-case handling are evaluated, not just whether it works.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: verified reports at
+                            LinkedIn (infinite scroll, calculator), Swiggy SDE-1 (file explorer OA, mouse-follow
+                            circle), Atlassian (file explorer, per a public question bank), and Microsoft's
+                            confirmed-but-unspecified 2-hour machine coding round. The specific "Canva: no AI tools
+                            allowed" and "Swiggy: uses CodeSandbox" details from the original draft could not be
+                            verified from the sources gathered and have been removed.</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">03</div>
+                    <div class="pattern-body">
+                        <h3>Frontend System Design: Design a Common UI Widget</h3>
+                        <p>Design an autocomplete, feed, or chat widget at the architecture level. Interviewers care
+                            about trade-offs: polling vs. WebSocket, cursor vs. offset pagination, optimistic updates,
+                            caching. The RADIO framework (Requirements → Architecture → Data Model → Interface →
+                            Optimizations) is a widely-used structure for these rounds.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: LinkedIn's Round 2 was
+                            entirely an autocomplete design (verified). The broader claim that this is standard at
+                            Razorpay, Swiggy, Zepto, Google, and Meta is generalized from typical senior frontend loops,
+                            not individually confirmed per company here.</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">04</div>
+                    <div class="pattern-body">
+                        <h3>React Hooks Internals + useEffect Pitfalls</h3>
+                        <p>Senior React questions tend to go beyond "what is useState" into stale closures in useEffect
+                            dependency arrays, when useMemo can hurt rather than help, and useLayoutEffect vs.
+                            useEffect. React 18 features (startTransition, useDeferredValue) are increasingly common in
+                            2025–2026 interviews as adoption of concurrent features grows.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: general senior-React
+                            interview knowledge; not tied to a specific verified report in this guide's source set.</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">05</div>
+                    <div class="pattern-body">
+                        <h3>Web Performance → Core Web Vitals + Optimization</h3>
+                        <p>Senior performance questions increasingly ask what you've actually improved, with numbers,
+                            not just definitions. INP officially replaced FID as a Core Web Vital in March 2024 — many
+                            candidates still default to talking about FID out of habit. Code splitting, virtual
+                            scrolling, and image optimization are common follow-ups.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: general senior-performance
+                            interview knowledge and Google's own Core Web Vitals documentation for the FID→INP
+                            transition; not tied to a specific verified company report here.</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">06</div>
+                    <div class="pattern-body">
+                        <h3>Product Sense + Behavioral (Hiring Manager Round)</h3>
+                        <p>Senior loops commonly include a hiring-manager or product-sense round assessing whether you
+                            think beyond the code: user behavior, experiment design, feature impact. Prepare 3–5 STAR
+                            stories covering impact, conflict, mentoring, and technical leadership.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: verified at LinkedIn
+                            (app-you-use-daily + A/B testing discussion) and, separately, Swiggy SDE-1 (a "build from
+                            the ground up" hiring-manager discussion). Broader "all senior loops" framing is
+                            generalized.</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">07</div>
+                    <div class="pattern-body">
+                        <h3>Implement Core JS Utilities from Scratch (Polyfills)</h3>
+                        <p>Implementing debounce, throttle, Promise combinators, an Event Emitter, clearAllTimeouts, or
+                            bind/call/apply polyfills from memory, without libraries, is a very common senior JS-coding
+                            pattern. The expectation is production-quality code with edge cases handled.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: clearAllTimeouts and
+                            infinite-scroll verified at LinkedIn; debounce (Flipkart), throttle (Walmart), and Event
+                            Emitter (Meta/Facebook) verified via a public frontend-interview-question repository.</p>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-rank">08</div>
+                    <div class="pattern-body">
+                        <h3>Next.js Rendering Strategies (SSR / RSC / ISR)</h3>
+                        <p>Candidates who learned Next.js in the Pages Router era often struggle with App Router, Server
+                            Components, and hydration-mismatch questions. The TTFB vs. LCP trade-off between rendering
+                            strategies, and debugging hydration mismatches, are common senior-level discussion points as
+                            App Router adoption has grown through 2025–2026.</p>
+                        <p style="margin-top:8px;font-size:12px;color:#d97706;">Grounded in: general senior Next.js
+                            interview knowledge; not tied to a specific verified report in this guide's source set.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="roadmap" class="section">
+            <div class="container">
+                <div class="section-title"><span class="icon">🗺️</span> Prioritized Preparation Roadmap</div>
+                <div class="section-sub">8-week plan for a 7-year Senior Frontend Engineer targeting senior
+                    product-company roles. Assumes ~2–3 hrs/day of focused prep. Adjust the pace to your own timeline.
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 1</span>
+                        <span class="roadmap-title">JavaScript Internals Mastery</span>
+                        <span class="roadmap-focus">🔴 Highest ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Topics to Cover</h4>
+                            <ul>
+                                <li>Event loop: call stack, microtasks, macrotasks</li>
+                                <li>Closures, lexical scope, TDZ, hoisting</li>
+                                <li>Prototypal inheritance + Object.create</li>
+                                <li>this binding: implicit, explicit, new, arrow</li>
+                                <li>Promises internals + async/await desugaring</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Practice</h4>
+                            <ul>
+                                <li>Solve 20+ output-based JS puzzles daily</li>
+                                <li>Implement: debounce, throttle, memoize from scratch</li>
+                                <li>Implement: Promise.all, Promise.race, allSettled</li>
+                                <li>Implement: bind, call, apply polyfills</li>
+                                <li>Implement: Event Emitter class</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 2</span>
+                        <span class="roadmap-title">React Deep Dive + Hooks</span>
+                        <span class="roadmap-focus">🔴 Highest ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Topics to Cover</h4>
+                            <ul>
+                                <li>React Fiber + reconciliation algorithm</li>
+                                <li>useEffect: stale closures, cleanup, abort</li>
+                                <li>useMemo / useCallback: when they help vs hurt</li>
+                                <li>Custom hooks: data fetching, race conditions</li>
+                                <li>React 18: startTransition, useDeferredValue, RSC</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Practice</h4>
+                            <ul>
+                                <li>Build: useDebounce, usePrevious, useIntersection hooks</li>
+                                <li>Build: useFetch with abort + cache + loading states</li>
+                                <li>Debug 5 useEffect infinite loop examples</li>
+                                <li>Profile a React app with DevTools Profiler</li>
+                                <li>Study: React 18 concurrent features documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 3</span>
+                        <span class="roadmap-title">Machine Coding Sprint</span>
+                        <span class="roadmap-focus">🔴 Highest ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Components to Build</h4>
+                            <ul>
+                                <li>File Explorer (tree with expand/collapse)</li>
+                                <li>Infinite Scroll with IntersectionObserver</li>
+                                <li>Calculator with state machine</li>
+                                <li>Kanban board with drag-and-drop</li>
+                                <li>Autocomplete with debounce + keyboard nav</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Quality Checklist</h4>
+                            <ul>
+                                <li>Keyboard accessible (Tab, Enter, Escape, Arrow keys)</li>
+                                <li>ARIA roles and labels applied</li>
+                                <li>Edge cases: empty state, error state, loading</li>
+                                <li>No memory leaks (cleanup in useEffect)</li>
+                                <li>Complete in under 60 minutes per component</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 4</span>
+                        <span class="roadmap-title">Frontend System Design</span>
+                        <span class="roadmap-focus">🔴 Highest ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Systems to Design</h4>
+                            <ul>
+                                <li>Autocomplete widget (most asked)</li>
+                                <li>News Feed / Social Timeline</li>
+                                <li>Real-time Chat (WebSocket/SSE)</li>
+                                <li>E-commerce page with live inventory</li>
+                                <li>Infinite scroll photo gallery</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Framework per Design</h4>
+                            <ul>
+                                <li>Use RADIO: Requirements → Architecture → Data → Interface → Optimizations</li>
+                                <li>Always discuss trade-offs (polling vs. WS, cursor vs. offset pagination)</li>
+                                <li>Address: caching, error handling, offline, accessibility</li>
+                                <li>Think about: skeleton screens, optimistic updates</li>
+                                <li>Measure: which Core Web Vitals does your design affect?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 5</span>
+                        <span class="roadmap-title">Next.js + Performance</span>
+                        <span class="roadmap-focus">🟡 High ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Topics to Cover</h4>
+                            <ul>
+                                <li>SSR / SSG / ISR / CSR — product scenarios for each</li>
+                                <li>App Router: RSC, layouts, "use client" boundary</li>
+                                <li>Hydration mismatches — causes and fixes</li>
+                                <li>Core Web Vitals: LCP, INP (not FID!), CLS</li>
+                                <li>Bundle optimization: splitting, tree shaking</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Practice</h4>
+                            <ul>
+                                <li>Build a Next.js App Router project with mixed rendering</li>
+                                <li>Trigger and debug a hydration mismatch intentionally</li>
+                                <li>Run Lighthouse on 3 real sites and diagnose issues</li>
+                                <li>Implement revalidatePath in a Next.js API route</li>
+                                <li>Analyze bundle with webpack-bundle-analyzer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 6</span>
+                        <span class="roadmap-title">Browser Internals, Security & TypeScript</span>
+                        <span class="roadmap-focus">🟡 High ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Topics to Cover</h4>
+                            <ul>
+                                <li>Rendering pipeline: layout → paint → composite</li>
+                                <li>CORS, CSP headers, XSS, CSRF prevention</li>
+                                <li>TypeScript: generics, conditional types, mapped types</li>
+                                <li>Service Workers + cache strategies for PWA</li>
+                                <li>HTTP/2 multiplexing vs. domain sharding (obsolete)</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Practice</h4>
+                            <ul>
+                                <li>Audit what triggers reflow vs. repaint in DevTools</li>
+                                <li>Write 5 complex TypeScript utility types from scratch</li>
+                                <li>Implement CSP nonce setup in a Next.js middleware</li>
+                                <li>Study: Jake Archibald's "In The Loop" talk</li>
+                                <li>Implement a Service Worker with stale-while-revalidate</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 7</span>
+                        <span class="roadmap-title">Architecture, Design Systems & Node.js Basics</span>
+                        <span class="roadmap-focus">🟡 High ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Topics to Cover</h4>
+                            <ul>
+                                <li>Micro-frontends: module federation vs. iframes</li>
+                                <li>Monorepos: Nx / Turborepo — when and why</li>
+                                <li>Design system: tokens, versioning, API stability</li>
+                                <li>A/B testing implementation + metrics (CVR, engagement)</li>
+                                <li>CORS in Node.js, REST API design basics</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Practice</h4>
+                            <ul>
+                                <li>Document your own past architecture decisions as case studies</li>
+                                <li>Study a real design system (Atlassian, MUI) for patterns</li>
+                                <li>Write an ADR (Architecture Decision Record) for a past project</li>
+                                <li>Practice explaining micro-frontend trade-offs verbally</li>
+                                <li>Build a simple Express API with proper CORS and auth middleware</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-week">
+                    <div class="roadmap-header">
+                        <span class="roadmap-week-num">Week 8</span>
+                        <span class="roadmap-title">Behavioral Prep + Mock Interviews + Company Research</span>
+                        <span class="roadmap-focus">🟡 High ROI</span>
+                    </div>
+                    <div class="roadmap-body">
+                        <div class="roadmap-col">
+                            <h4>Behavioral Prep</h4>
+                            <ul>
+                                <li>Prepare 5 STAR stories: impact, conflict, mentoring, ownership, failure</li>
+                                <li>Quantify impact: "improved LCP by 35%", "reduced bundle by 40%"</li>
+                                <li>Story on your most complex technical decision</li>
+                                <li>Story on mentoring a junior to independence</li>
+                                <li>Story on cross-team alignment / stakeholder management</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-col">
+                            <h4>Mock Interview Execution</h4>
+                            <ul>
+                                <li>2 full machine coding sessions (timed, 60 min each)</li>
+                                <li>2 system design sessions with a peer</li>
+                                <li>1 mock JS deep-dive with output-based questions</li>
+                                <li>Research target company: tech blog, eng culture, stack</li>
+                                <li>Prepare 5 smart questions for each interviewer round</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer
+        style="background: var(--surface); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size:13px;">
+        <div style="max-width:720px;margin:0 auto;">
+            <p style="margin-bottom:10px;font-weight:600;color:#fff;">Sources checked for this guide</p>
+            <p>Roundz Newsletter (Substack) — LinkedIn Senior Front End Engineer (IC3) report, Aug 2025 · LeetCode
+                Discuss — Swiggy SDE-1 Frontend report, Dec 2024 · Frontend Junction — Microsoft Frontend Interview
+                Experience 2026 (round structure only; exact questions not published) ·
+                Devtools-Tech-Team/front-end-interview-questions (GitHub, 200+ community-tagged questions) · Medium
+                (@ritambrayadav20) — machine coding CSS question.</p>
+            <p style="margin-top:16px;color:#d97706;">⚠️ Every source link above was checked and is real at time of
+                writing. Most, however, are single anonymous candidate reports, not verified or repeated across many
+                candidates — treat company tags as "this was reported once," not "this is guaranteed." Questions marked
+                "Pattern" in this guide are common senior-frontend topics compiled from general prep knowledge, not
+                confirmed against a specific company report. Compensation figures (₹50–55 LPA) are directional and vary
+                by company, level, and negotiation.</p>
+        </div>
+    </footer>
+
+    <script src="questionBank.js" defer></script>
+</body>
+
+</html>
